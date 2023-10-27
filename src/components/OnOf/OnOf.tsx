@@ -1,5 +1,5 @@
 import s from "./OnOff.module.css"
-import React, {useState} from "react"
+import React from "react"
 
 type OnOfPropsType = {
     status: boolean
@@ -13,6 +13,7 @@ export const OnOf: React.FC<OnOfPropsType> = ({status, setOnOff}) => {
 
     const onclickOnHandler = () => setOnOff(true)
     const onclickOffHandler = () => setOnOff(false)
+
 
     return (
         <div className={s.wrapper}>

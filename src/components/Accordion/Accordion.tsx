@@ -3,18 +3,13 @@ import React from "react"
 type AccordionPropsType = {
     title: string,
     collapsed: boolean
-    setCollapsed: (collapsed: boolean) => void
+    setCollapsed: () => void
 }
 
 function Accordion(props: AccordionPropsType) {
-
-    const collapsed = () => {
-        props.setCollapsed(!props.collapsed)
-    }
-
     return (
         <>
-            <AccordionTitle title={props.title} collapsed={collapsed}/>
+            <AccordionTitle title={props.title} collapsed={props.setCollapsed}/>
             {!props.collapsed && <AccordionBody/>}
         </>
     )

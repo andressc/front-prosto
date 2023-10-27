@@ -5,7 +5,6 @@ import {Rating, RatingValueType} from "./components/Rating/Rating"
 import {UncontrolledOnOf} from "./components/OnOf/UncontrolledOnOf"
 import UncontrolledAccordion from "./components/Accordion/UncontrolledAccordion"
 import {UncontrolledRating} from "./components/Rating/UncontrolledRating"
-import {OnOf} from "./components/OnOf/OnOf"
 
 type PageTitlePropsType = {
     title: string
@@ -17,11 +16,17 @@ function App() {
     const [collapsed, setCollapsed] = useState<boolean>(false)
     const [OnOff, setOnOff] = useState<boolean>(true)
 
+    const collapsedAccordion = () => {
+        setCollapsed(!collapsed)
+    }
+
+
     return (
         <div className="App">
-            <OnOf status={OnOff} setOnOff={setOnOff}/>
+            {/*<OnOf status={OnOff} setOnOff={setOnOff}/>*/}
 
-            <UncontrolledOnOf status={true}/>
+            <UncontrolledOnOf status={true} observer={setOnOff}/>
+            <p>{OnOff.toString()}</p>
 
             <p>ControlledRating</p>
             <div>
@@ -32,7 +37,7 @@ function App() {
             <UncontrolledRating/>
 
             <p>ControlledAccordion</p>
-            <Accordion title="one accordion" collapsed={collapsed} setCollapsed={setCollapsed}/>
+            <Accordion title="one accordion" collapsed={collapsed} setCollapsed={collapsedAccordion}/>
 
             <p>UncontrolledAccordion</p>
             <UncontrolledAccordion title="one accordion"/>
