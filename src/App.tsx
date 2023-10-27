@@ -1,26 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react"
+import "./App.css"
+import Accordion from "./components/Accordion/Accordion"
+import {Rating, RatingValueType} from "./components/Rating/Rating"
+import {UncontrolledOnOf} from "./components/OnOf/UncontrolledOnOf"
+import UncontrolledAccordion from "./components/Accordion/UncontrolledAccordion"
+import {UncontrolledRating} from "./components/Rating/UncontrolledRating"
+import {OnOf} from "./components/OnOf/OnOf"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+type PageTitlePropsType = {
+    title: string
 }
 
-export default App;
+function App() {
+
+    const [value, setValue] = useState<RatingValueType>(0)
+    const [collapsed, setCollapsed] = useState<boolean>(false)
+    const [OnOff, setOnOff] = useState<boolean>(true)
+
+    return (
+        <div className="App">
+            <OnOf status={OnOff} setOnOff={setOnOff}/>
+
+            <UncontrolledOnOf status={true}/>
+
+            <p>ControlledRating</p>
+            <div>
+                <Rating value={value} setValue={setValue}/>
+            </div>
+
+            <p>UncontrolledRating</p>
+            <UncontrolledRating/>
+
+            <p>ControlledAccordion</p>
+            <Accordion title="one accordion" collapsed={collapsed} setCollapsed={setCollapsed}/>
+
+            <p>UncontrolledAccordion</p>
+            <UncontrolledAccordion title="one accordion"/>
+            {/*        <PageTitle title="This is app component" />
+          Article 1
+        <Rating value={0} />
+        <Accordion title="one accordion" collapsed={true} />
+          <PageTitle title="New title component" />
+          Article 2
+          <Rating value={5} />
+          <Accordion title="two accordion" />*/}
+        </div>
+    )
+}
+
+function PageTitle(props: PageTitlePropsType) {
+    return (
+        <h1>
+            {props.title}
+        </h1>
+    )
+}
+
+export default App
