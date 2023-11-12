@@ -1,0 +1,61 @@
+.blockWrapper {
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    width: 130px;
+}
+
+.blockSelected {
+    background-color: #dcdcdc;
+    padding: 15px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    position: relative;
+    height: 50px;
+}
+.blockSelected:after {
+    content: "▼";
+    color: #565656;
+    position: absolute;
+    right: 10px;
+}
+.blockSelected:hover {
+    background-color: #cecece;
+}
+
+.blockSelect {
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    background-color: #ffffff;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    position: absolute;
+    width: 129px;
+    left: 1px;
+    z-index: 100;
+}
+
+.blockSelectHide {
+    display: none;
+}
+
+.blockSelectUnHide {
+    display: block;
+}
+
+.blockSelectValue {
+    padding: 5px;
+    height: 30px;
+}
+
+.blockSelectValueActive {
+    background-color: #2946fd;
+    color: #fff;
+}
+
+.blockSelectValue:hover {
+    background-color: #2946fd;
+    color: #fff;
+}
